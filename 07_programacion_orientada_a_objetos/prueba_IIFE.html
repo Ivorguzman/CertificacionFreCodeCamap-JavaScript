@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+    </style>
+    <title>My Title</title>
+</head>
+
+<body style="background-color:#000" <main>
+
+    </main>
+
+    <!-- <script>
+// Metodo 1 === encapsula toda la logica de la aplicacion en una variable() ===
+
+let funModule = (function () {
+
+let bird = {
+    name: "Donald",
+    numLegs: 'Tengo 2 patas'
+};
+
+let boat = {
+    name: "Warrior",
+    type: "race-boat"
+};
+
+function glideMixin(obj) {
+    obj.glide = function () {
+        console.log("Gliding on the water");
+    };
+}
+
+function flyMixin(obj) {
+    obj.fly = function () {
+        console.log("Flying, wooosh!");
+    };
+}
+
+glideMixin(bird);
+glideMixin(boat);
+
+flyMixin(bird);
+flyMixin(boat);
+
+console.log("--------------------");
+console.log(bird.name);
+console.log(bird.numLegs);
+bird.glide();
+bird.fly();
+
+console.log("--------------------");
+console.log(boat.name);
+console.log(boat.type);
+boat.glide();
+boat.fly();
+
+bird.name = 'Pepe';
+console.log(bird.name);
+
+})(); 
+
+</script>-->
+
+    <script>
+
+       // Metodo 2 === Retorna toda la logica de la aplicacion en un Objeto{} ===
+       
+        let funModule = (function () {
+            return {
+                 bird : {
+                    name: "Donald",
+                    numLegs: 'Tengo 2 patas'
+                },
+
+                isCuteMixin : function (obj) {
+                    obj.isCute = function () {
+                        return true;
+                    }
+                },
+
+                 singMixin : function (obj) {
+                    obj.sing = function () {
+                        console.log("Singing to an awesome tune");
+                    };
+                }
+            };
+        })();
+
+    </script>
+</body>
+
+</html>

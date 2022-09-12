@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+    </style>
+    <title>My Title</title>
+</head>
+
+<body>
+
+    <main>
+
+    </main>
+
+    <script>
+
+
+
+        console.log("=== Ensayos de Herencia prototypicas  y Mixin ===");
+
+        function Avion() { };
+        Avion.prototype = {
+            origen:'Creacion',
+            estructura: ' My costitución es de: Metales, Gomas, silicio',
+        };
+
+        mixinVolar = function (objeto) {
+            objeto.volar = function () {
+                console.log(' Y  yo puedo Volar');
+            };
+        };
+
+        console.log("-----Bird() { }----");
+        function Bird() { };
+        Bird.prototype = Object.create(Avion.prototype);
+        Bird.prototype.estructura = 'My costitución es de: Plumas, carne y huesos';
+        Bird.constructor = Bird;
+        console.log(Bird.constructor === Bird);
+
+
+        console.log("-------- boing_747---------");
+        let boing_747 = new Avion();
+        console.log(boing_747.estructura);
+        mixinVolar(boing_747);
+        boing_747.volar();
+
+
+
+        console.log("-----zamuro ----------");
+        let zamuro = new Bird();
+        console.log(zamuro.estructura);
+        mixinVolar(zamuro);
+        zamuro.volar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
