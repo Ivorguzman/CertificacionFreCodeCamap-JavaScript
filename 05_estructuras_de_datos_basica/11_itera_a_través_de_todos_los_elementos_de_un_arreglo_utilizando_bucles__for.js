@@ -37,7 +37,10 @@
                 let newArr = [];
                 for (let i = 0; i < arr.length; i++) {
                     if (arr[i].indexOf(elem) == -1) {
+                        consoloe, log(arr[i])
                         newArr.push(arr[i])
+                    } else {
+
                     }
                 }
                 // Cambia solo el código encima de esta línea
