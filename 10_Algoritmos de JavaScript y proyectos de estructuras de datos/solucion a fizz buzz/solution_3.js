@@ -7,11 +7,11 @@
     console.log("******* y = " + y + " ********");
     for (let x = 0; x < size; x++) {
       console.log("------ x = " + x +" --------");
-      console.log(x);
+     //console.log(x);
       let a = ((x + y) % 2 == 0);
       console.log(a);
       if ((x + y) % 2 == 0) {
-        board += " ";
+        board += "°";
         console.log(board);
       } else {
         board += "#";
