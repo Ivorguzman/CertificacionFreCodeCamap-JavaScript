@@ -1,22 +1,31 @@
 {
-  let size = 8;
+
+  let size = 4;
 
   let board = "";
   for (let y = 0; y < size; y++) {
+    console.log("******* y = " + y + " ********");
     for (let x = 0; x < size; x++) {
+      console.log("------ x = " + x +" --------");
+      console.log(x);
+      let a = ((x + y) % 2 == 0);
+      console.log(a);
       if ((x + y) % 2 == 0) {
         board += " ";
+        console.log(board);
       } else {
         board += "#";
+        console.log(board);
       }
-    }
-    board += "\n";
+    };
+    console.log(board += "\n");
+    console.log(board);
   }
 
   console.log(board);
 }
 
-
+/* 
 
 {
   valores = []
@@ -42,3 +51,4 @@
   console.log(valores1);
   console.log(valores2);
 }
+ */
