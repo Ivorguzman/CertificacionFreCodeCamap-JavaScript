@@ -1,31 +1,36 @@
 
-/* 
+
 {
   // !Ejercicio 1
 
   {
-
     let size = 4;
 
     let board = "";
-    for (let i = 0; i < size; i++) {
-      console.log("******* i = " + i + " ********");
-      let t_f = ((j + i) % 2 == 0);
-      console.log(t_f);
-      if ((j + i) % 2 == 0) {
-        board += "°";
-        console.log(board);
-      } else {
-        board += "#";
-        console.log(board);
-      }
-    };
+    for (let y = 0; y < size; y++) {
+      console.log("******* y = " + y + " ********");
+      for (let x = 0; x < size; x++) {
+        console.log("------ x = " + x + " --------");
+        //console.log(x);
+        let a = ((x + y) % 2 == 0);
+        console.log(a);
+        if ((x + y) % 2 == 0) {
+          board += "°";
+          console.log(board);
+        } else {
+          board += "#";
+          console.log(board);
+        }
+      };
+      board += "\n"
+    }
+
   }
 
   // console.log(board);
 }
 
-*/
+
 
 
 
