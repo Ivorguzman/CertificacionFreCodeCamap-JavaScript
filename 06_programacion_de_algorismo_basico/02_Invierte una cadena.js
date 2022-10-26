@@ -31,9 +31,9 @@
     function reverseString(str) {
         let newStr = str;
         return newStr
-            .split("")  //!split() divide el String en un array (vector) 
-            .reverse()
-            .join("");//! El método join() une todos los elementos de una matriz en una cadena y  la devuelve 
+            .split("")  //split() transforma el String en un array (vector) 
+            .reverse() // reverse() Invierte  la palabra
+            .join("");//  El método join() une todos los elementos de una matriz en una cadena y  la devuelve 
     }
 
 
@@ -41,26 +41,84 @@
 };
 
 {
-    //! Solucion 2  con Lopp for con metodo push()
+    //! Solucion 2  con bucle for tradicional
 
-    function reverseString(str) {
-        //! inzializando contador con lonjitud de el string
-        let newString = [];
-        console.log(str.split(""));
-        console.log(str.length);
-        for (let i = str.length - 1; i >= 0; i--) {
-            newString.push(str[i]);
+
+    {
+        //? Solucion 2.1
+
+        function reverseString(str) {
+            //! inzializando contador con lonjitud de el string
+            let newString = [];
+            console.log(str.split(""));
+            console.log(str.length);
+            for (let i = str.length - 1; i >= 0; i--) {
+                newString.push(str[i]);
+            }
+            console.log(newString.join(""));
+            return newString.join("");
         }
-        console.log(newString.join(""));
-        return newString.join("");
+        reverseString("hello");
     }
-    reverseString("hello");
+
+    {
+        //?  Solucion 2.2
+        function invertirCadena(str) {
+
+            let original = str.split("");
+            // console.log(original);
+            let invertido = [];
+
+            for (i = 0; i < original.length; i++) {
+                invertido[i] = original[((original.length - 1) - i)];
+                console.log(invertido);
+            }
+            return invertido.join("");
+        }
+
+        /// console.log(invertirCadena("hello"));
+        // console.log(invertirCadena("avion"));
+    }
+
+    {
+        //? Solucion  2.3
+        function invertirCadena(str) {
+
+            let original = str.split("");
+            let invertido = [];
+            let contador = 0;
+            for (i = original.length - 1; i >= 0; i--) {
+                invertido[contador] = original[i];
+                contador += 1;
+                // console.log(invertido);
+            }
+            return invertido;
+        }
+        // console.log(invertirCadena("hello"));
+    }
+    {
+        //? Solucion 2.4
+
+        function invertirCadena(str) {
+            let original = str.split("");
+            let invertido = [];
+
+            for (i = 0; i <= original.length - 1; i++) {
+                invertido.unshift(original[i]);
+                // console.log(i, invertido.unshift(original[i]));
+            }
+            return invertido;
+        }
+
+        console.log(invertirCadena("hola"));
+    }
 
 }
 
 
-//! Solucion 3  con Lopp forEach() con metodo unshift()
 {
+    //! Solucion 3  con Lopp forEach() con metodo unshift()
+
     function reverseString(str) {
         let newString = [];
         let array = str.split("");
@@ -72,7 +130,7 @@
             newString.unshift(element);
         });
         console.log(newString.join(""));
-        return newString.join("")
+        return newString.join("");
     }
     console.log(reverseString("hello"));
 }
