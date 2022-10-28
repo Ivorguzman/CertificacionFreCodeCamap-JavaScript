@@ -132,22 +132,26 @@
 
 
 {
-    //! Solucion 3  con Lopp forEach() con metodo unshift()
 
-    function reverseString(str) {
-        let newString = [];
-        let array = str.split("");
-        console.log(array);
-        array.forEach((element) => {
-            console.log(element);
-            console.log(Array.isArray(element));
-            console.log(Array.isArray(newString));
-            newString.unshift(element);
-        });
-        console.log(newString.join(""));
-        return newString.join("");
+    //! Solucion 3  con Loop forEach() 
+    
+    {
+        //? Solucion 3.1
+        function reverseString(str) {
+            let newString = [];
+            let array = str.split("");
+            console.log(array);
+            array.forEach((element) => {
+                console.log(element);
+                console.log(Array.isArray(element));
+                console.log(Array.isArray(newString));
+                newString.unshift(element);
+            });
+            console.log(newString.join(""));
+            return newString.join("");
+        }
+        console.log(reverseString("hello"));
     }
-    console.log(reverseString("hello"));
 }
 
 
