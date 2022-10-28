@@ -112,6 +112,21 @@
 
         console.log(invertirCadena("hola"));
     }
+    {
+        //? Solucion 2.5
+
+        function invertirCadena(str) {
+            const original = [...str];
+            const invertido = [];
+
+            for (i = 0; i <= original.length - 1; i++) {
+                invertido.unshift(original[i]);
+            }
+            return invertido;
+        }
+
+        console.log(invertirCadena("ivor"));
+    }
 
 }
 
