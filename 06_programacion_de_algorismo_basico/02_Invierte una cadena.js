@@ -73,7 +73,7 @@
                 invertido[i] = original[((original.length - 1) - i)];
                 console.log(invertido);
             }
-            return invertido.join("");
+            return invertido.join(" ");
         }
 
         /// console.log(invertirCadena("hello"));
@@ -92,142 +92,192 @@
                 contador += 1;
                 // console.log(invertido);
             }
-            return invertido;
+            return invertido.join(" ");
+            // console.log(invertirCadena("hello"));
         }
-        // console.log(invertirCadena("hello"));
-    }
-    {
-        //? Solucion 2.4
+        {
+            //? Solucion 2.4
 
-        function invertirCadena(str) {
-            let original = str.split("");
-            let invertido = [];
+            function invertirCadena(str) {
+                let original = str.split("");
+                let invertido = [];
 
-            for (i = 0; i <= original.length - 1; i++) {
-                invertido.unshift(original[i]);
-                // console.log(i, invertido.unshift(original[i]));
+                for (i = 0; i <= original.length - 1; i++) {
+                    invertido.unshift(original[i]);
+                    // console.log(i, invertido.unshift(original[i]));
+                }
+                return invertido.join(" ");
             }
-            return invertido;
+
+            console.log(invertirCadena("hola"));
         }
+        {
+            //? Solucion 2.5
 
-        console.log(invertirCadena("hola"));
-    }
-    {
-        //? Solucion 2.5
+            function invertirCadena(str) {
+                const original = [...str]; // remplazando el uso del metodo split() 
+                const invertido = [];
 
-        function invertirCadena(str) {
-            const original = [...str]; // remplazando el uso del metodo split() 
-            const invertido = [];
-
-            for (i = 0; i <= original.length - 1; i++) {
-                invertido.unshift(original[i]);
+                for (i = 0; i <= original.length - 1; i++) {
+                    invertido.unshift(original[i]);
+                }
+                return invertido.join(" ");
             }
-            return invertido;
+
+            console.log(invertirCadena("ivor"));
         }
 
-        console.log(invertirCadena("ivor"));
     }
 
-}
-
-
-{
-
-    //! Solucion 3  con Loop forEach() 
 
     {
-        //? Solucion 3.1
-        function reverseString(str) {
-            let newString = [];
-            let array = str.split("");
-            console.log(array);
-            array.forEach((element) => {
-                console.log(element);
-                console.log(Array.isArray(element));
-                console.log(Array.isArray(newString));
-                newString.unshift(element);
+
+        //! Solucion 3  con Loop forEach() 
+
+        {
+            //? Solucion 3.1
+            function reverseString(str) {
+                let newString = [];
+                let array = str.split("");
+                array.forEach((element) => {
+                    newString.unshift(element);
+                });
+                return newString.join("");
+            }
+            reverseString("hello");
+        }
+
+        {
+            //? Solucion 1
+            function invertirCadena(str) {
+                let original = [...str];
+                let invertido = [];
+                original.forEach((_, i) => {
+                    invertido[i] = original[(original.length - 1) - i];
+                });
+                return invertido.join(" ");
+            }
+            console.log(invertirCadena("hola"));
+            console.log(invertirCadena("ivor"));
+        }
+
+        {
+            //? Solucion 2
+            function invertirCadena(str) {
+                let original = [...str];
+                let invertido = [];
+                original.forEach((elemento, i) => {
+                    console.log(elemento, i);
+                    invertido.unshift(elemento);
+                    console.log(invertido, i);
+                });
+                return invertido.join(" ");
+            }
+
+            // invertirCadena("hola");
+            // console.log(invertirCadena("hola"));
+            console.log(invertirCadena("ivor"));
+
+        }
+
+        {
+            //? Solucion 3
+            function invertirCadena(str) {
+                let original = [...str];
+                console.log(original);
+                let invertido = [];
+                original.forEach((_, i) => {
+                    invertido.push(original[(original.length - 1) - i]);
+                });
+                return invertido.join(" ");
+            }
+
+            // invertirCadena("hola");
+            // console.log(invertirCadena("hola"));
+            console.log(invertirCadena("ivor"));
+
+        }
+
+
+
+
+
+    }
+
+
+    {
+        //! Solucion 4  agregandolo un metodo a String con un  for sin aplicar metodos de array. (con acumulador)
+        //? https:es.stackoverflow.com/questions/226746/invertir-un-string-sin-reverse-en-js
+
+        String.prototype.reverseString = function () {
+            console.log(this);
+            let newString = "";
+            for (let i = this.length - 1; i >= 0; i--) {
+                newString += this[i];
+                // console.log(newString);
+            }
+            return newString;
+        };
+        let str = "hello";
+        str.reverseString();
+
+    }
+
+
+
+    {
+        //! Invirtiendo  una cadena de caracters con  map() 1  [str]
+
+        let reverseString = (str) => {
+            let arrayString = [str];
+            console.log(arrayString);
+            let resultado = arrayString.map((valor) => {
+                let cadena = valor.split("").reverse().join("");
+                console.log(cadena);
+                return cadena;
             });
-            console.log(newString.join(""));
-            return newString.join("");
-        }
+            return resultado.join("");
+        };
+
         console.log(reverseString("hello"));
     }
-}
 
+    console.log("---------------------------------------");
+    {
+        //! Invirtiendo  una cadena de caracters con  map() 2  str.split(" ")
 
-{
-    //! Solucion 4  agregandolo un metodo a String con un  for sin aplicar metodos de array. (con acumulador)
-    //? https:es.stackoverflow.com/questions/226746/invertir-un-string-sin-reverse-en-js
+        let reverseString = (str) => {
+            let arrayString = str.split(" ");
+            console.log(arrayString);
+            let resultado = arrayString.map((valor) => {
+                let cadena = valor.split("").reverse().join("");
+                console.log(cadena);
+                return cadena;
+            });
 
-    String.prototype.reverseString = function () {
-        console.log(this);
-        let newString = "";
-        for (let i = this.length - 1; i >= 0; i--) {
-            newString += this[i];
-            // console.log(newString);
-        }
-        return newString;
-    };
-    let str = "hello";
-    str.reverseString();
+            return resultado.join(" ");
+        };
 
-}
+        console.log(reverseString("hello"));
+    }
 
+    {
 
+        //! Solucion 4  agregandolo un metodo a al prototype de String  con  map() 
 
-{
-    //! Invirtiendo  una cadena de caracters con  map() 1  [str]
+        String.prototype.reverseString = function () {
+            console.log(this);
+            let newString = this.split(" ").map((str) => {
+                let resultado = str.split("").reverse().join("");
+                return resultado;
+            });
+            return newString.join(" ");
+        };
+        let str = "hello";
+        console.log(str.reverseString());
+        console.log("avion".reverseString());
 
-    let reverseString = (str) => {
-        let arrayString = [str];
-        console.log(arrayString);
-        let resultado = arrayString.map((valor) => {
-            let cadena = valor.split("").reverse().join("");
-            console.log(cadena);
-            return cadena;
-        });
-        return resultado.join("");
-    };
+    }
 
-    console.log(reverseString("hello"));
-}
-
-console.log("---------------------------------------");
-{
-    //! Invirtiendo  una cadena de caracters con  map() 2  str.split(" ")
-
-    let reverseString = (str) => {
-        let arrayString = str.split(" ");
-        console.log(arrayString);
-        let resultado = arrayString.map((valor) => {
-            let cadena = valor.split("").reverse().join("");
-            console.log(cadena);
-            return cadena;
-        });
-
-        return resultado.join(" ");
-    };
-
-    console.log(reverseString("hello"));
-}
-
-{
-
-    //! Solucion 4  agregandolo un metodo a al prototype de String  con  map() 
-
-    String.prototype.reverseString = function () {
-        console.log(this);
-        let newString = this.split(" ").map((str) => {
-            let resultado = str.split("").reverse().join("");
-            return resultado;
-        });
-        return newString.join(" ");
-    };
-    let str = "hello";
-    console.log(str.reverseString());
-    console.log("avion".reverseString());
 
 }
-
-
-
