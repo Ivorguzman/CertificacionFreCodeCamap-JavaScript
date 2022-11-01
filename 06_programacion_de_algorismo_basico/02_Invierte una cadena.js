@@ -116,7 +116,7 @@
         //? Solucion 2.5
 
         function invertirCadena(str) {
-            const original = [...str];
+            const original = [...str]; // remplazando el uso del metodo split() 
             const invertido = [];
 
             for (i = 0; i <= original.length - 1; i++) {
@@ -134,7 +134,7 @@
 {
 
     //! Solucion 3  con Loop forEach() 
-    
+
     {
         //? Solucion 3.1
         function reverseString(str) {
@@ -164,7 +164,7 @@
         let newString = "";
         for (let i = this.length - 1; i >= 0; i--) {
             newString += this[i];
-            console.log(newString);
+            // console.log(newString);
         }
         return newString;
     };
@@ -213,7 +213,7 @@ console.log("---------------------------------------");
 
 {
 
-    //! Solucion 4  agregandolo un metodo a Strin  con  map() 3 Usando elo objeto( This)
+    //! Solucion 4  agregandolo un metodo a al prototype de String  con  map() 
 
     String.prototype.reverseString = function () {
         console.log(this);
