@@ -209,7 +209,7 @@
 
 {
     //! Solucion 4 agregandolo como  metodo a el Objeto String || for sin aplicar metodos de array||. (con acumulador)
-    
+
     //? Solucion 1 sin aplicar metodos de array. (con acumulador)
 
     //? https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects
@@ -238,10 +238,10 @@
 {
 
     //! Invirtiendo  una cadena de caracters con  map()
-    
+
     {
-         //? Solucion 1
-        
+        //? Solucion 1
+
         let reverseString = (str) => {
             let arrayString = [str];
             console.log(arrayString);
@@ -256,11 +256,26 @@
         console.log(reverseString("hello"));
     }
 
-    
     {
         //? Solucion 2
 
-        //! Invirtiendo  una cadena de caracters con  map() 2  str.split(" ")
+        let reverseString = (str) => {
+            let arrayString = [...str];
+            console.log(arrayString);
+            let resultado = arrayString.map((valor) => {
+                let cadena = valor.reverse().join("");
+                console.log(cadena);
+                return cadena;
+            });
+            return resultado.join("");
+        };
+
+        console.log(reverseString("hello"));
+    }
+
+
+    {
+        //? Solucion 3
 
         let reverseString = (str) => {
             let arrayString = str.split(" ");
@@ -279,7 +294,7 @@
 
     {
 
-        //? Solucion 3
+        //? Solucion 4
 
         String.prototype.reverseString = function () {
             console.log(this);
