@@ -206,13 +206,13 @@
 
 
     {
-        //! Solucion 4  agregandolo un metodo a String con un  for sin aplicar metodos de array. (con acumulador)
+        //! Solucion 4 agregandolo como  metodo a el Objeto String || for sin aplicar metodos de array||. (con acumulador)
     //? Solucion 1 sin aplicar metodos de array. (con acumulador)
         
        //? https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects
         
         // ? https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
-        
+
         String.prototype.reverseString = function () {
             console.log(this);
             let newString = "";
